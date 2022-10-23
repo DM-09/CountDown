@@ -1,4 +1,4 @@
-<html>
+<tml>
 <head>
 
 <title>Count Down</title>
@@ -19,8 +19,8 @@
 	[New Year Count Down]
 </div>
 
-<div id='text'  style="position:relative;left:-25px;top:300px; text-align : center; 
-	font-size:6em; font-weight: bold; color:White;">
+<div id='text'  style="position:relative;left:-25px;top:450px; text-align : center; 
+	font-size:5em; font-weight: bold; color:black;">
 	00 : 00 : 00
 </div>
 
@@ -33,7 +33,7 @@ function CountDown() {
 	var mark = document.querySelector("div#text")
 	
 	if (distance < 0) {
-		mark.innerHTML = 'Over'
+		mark.innerHTML = 'Happy New Year!'
 	} else {
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

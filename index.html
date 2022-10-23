@@ -38,12 +38,22 @@ function CountDown() {
 	var mark = document.querySelector("div#text")
 	
 	if (distance < 0) {
-		mark.innerHTML = 'Over'
+		mark.innerHTML = 'Happy New Year!'
 	} else {
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		
+		if (days < 10) {
+			days = "0" + days
+		} else if (hours < 10) {
+			hours = '0' + hours
+		} else if (minutes < 10) {
+			minutes = '0' + minutes
+		} else if (seconds < 10) {
+			seconds = '0' + seconds
+		}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		

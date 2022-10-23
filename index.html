@@ -25,6 +25,11 @@
 </div>
 
 <script>
+var isMobile = /Mobi/i.test(window.navigator.userAgent);
+
+if (isMobile) {
+	window.location.href = 'https://dm-09.github.io/CountDown/mobile/';
+}
 
 function CountDown() {
 	var The_Day = new Date(2022,12,01,00,00,00).getTime();

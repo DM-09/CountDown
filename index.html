@@ -45,8 +45,10 @@ function CountDown() {
 	if (distance < 0) {
 		mark.innerHTML = 'Happy New Year!'
 	} else {
-		const year = now.getFullYear(); const month = now.getMonth(); const day = now.getDate();
-		const hour = now.getHours(); const min = now.getMinutes();  const sec = now.getSeconds()
+		const year = String(now.getFullYear()); const month = String(now.getMonth()); const day = String(now.getDate());
+		const hour = String(date.getHours()).padStart(2,"0"); const minutes = String(date.getMinutes()).padStart(2,"0");
+		const second = String(date.getSeconds()).padStart(2,"0");
+		
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -56,13 +58,10 @@ function CountDown() {
 		if (hours < 10) { hours = '0' + hours }
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
-		if (hour < 10) {hour = '0' + hour}
-		if (min < 10) {min = '0' + min}
-		if (sec < 10) {sec = '0' + sec}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
-		N_mark.innerHTML = year + ' ' + month + '/' +  day + ' ' + hour + ':' +  min + ':' + sec
+		N_mark.innerHTML = year + ' ' + month + '/' +  day + ' ' + hour + ':' +  minutes + ':' + seconds
 		
 	}
 };

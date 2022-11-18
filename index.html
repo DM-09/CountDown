@@ -24,16 +24,12 @@
 	font-size:6em; font-weight: bold; color:White; -webkit-text-stroke: 2px #000;">
 	00 : 00 : 00
 </div>
-	
-<div class="firework"></div>
-	<div class="firework"></div>
-		<div class='firework'></div>
 
 <script>
-var isMobile = /Mobi/i.test(window.navigator.userAgent);
-
-if (isMobile) {
-	window.location.href = 'https://dm-09.github.io/CountDown/mobile/';
+	
+function firework() {
+	var div = document.createElement('div')
+	div.setAttribute('class', 'firework');
 }
 
 function CountDown() {
@@ -55,6 +51,8 @@ function CountDown() {
 		if (hours < 10) { hours = '0' + hours }
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
+		
+		if (minutes < 40) {firework()}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text

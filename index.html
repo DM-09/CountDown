@@ -22,6 +22,11 @@
 	font-size:6em; font-weight: bold; color:White;">
 	00 : 00 : 00
 </div>
+	
+<div id='now'  style="position:relative;left:-25px;top:320px; text-align : center; 
+	font-size:3em; font-weight: bold; color:White;">
+	00 : 00 : 00
+</div>
 
 <script>
 var isMobile = /Mobi/i.test(window.navigator.userAgent);
@@ -35,6 +40,7 @@ function CountDown() {
 	var now = new Date().getTime();
 	var distance = The_Day - now
 	var mark = document.querySelector("div#text")
+	var N_mark = document.querySelector("div#now")
 	
 	if (distance < 0) {
 		mark.innerHTML = 'Happy New Year!'
@@ -43,14 +49,22 @@ function CountDown() {
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		var time_table = [now.getFullYear, now.getMonth(), now.getHours(), now.getMinutes(), now.getSeconds()]
 		
 		if (days < 10) { days = "0" + days }
 		if (hours < 10) { hours = '0' + hours }
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
+		if (time_table[1] < 10) {time_table[1] = '0' + time_table[1]}
+		if (time_table[2] < 10) {time_table[2] = '0' + time_table[2]}
+		if (time_table[3] < 10) {time_table[3] = '0' + time_table[3]}
+		if (time_table[4] < 10) {time_table[4] = '0' + time_table[4]}
+		if (time_table[5] < 10) {time_table[5] = '0' + time_table[5]}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
+		N_mark.innerHTML = time_table[1] + ':' +  time_table[2] + ':' + time_table[3] + ':' +  time_table[4] + ':' + time_table[5]
+		
 	}
 };
 

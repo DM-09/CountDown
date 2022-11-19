@@ -26,11 +26,9 @@
 </div>
 
 <script>
-	
-var num = 0
-
 function Firework() {
-	if (num < 5) {
+	var step;
+	for (step = 0; step < 5; step++) {
 		const randomNum = Math.random() * 1000
 		const randomNumFloor = Math.floor(randomNum + 500)
 		var div = document.createElement('div')
@@ -61,7 +59,7 @@ function CountDown() {
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
 		
-		if (seconds < 30) {Firework()}
+		if (seconds == 30) {Firework()}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text

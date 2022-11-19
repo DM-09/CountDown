@@ -27,10 +27,18 @@
 
 <script>
 	
+var num = 0
+
 function Firework() {
-	var div = document.createElement('div')
-	div.setAttribute('class', 'firework');
-	document.querySelector('body').append(div);
+	if (num < 8) {
+		const randomNum = Math.random() * 1000
+		const randomNumFloor = Math.floor(randomNum + 500)
+		var div = document.createElement('div')
+		div.setAttribute('class', 'firework');
+		div.setAttribute('style', 'position:relative;left:' + randomNumFloor + 'px;');
+		document.querySelector('body').append(div);
+		num = num + 1
+	}
 }
 
 function CountDown() {

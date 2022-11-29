@@ -31,18 +31,6 @@
 </div>
 
 <script>
-function Firework() {
-	var step;
-	for (step = 0; step < 5; step++) {
-		const randomNum = Math.random() * 1000
-		const randomNumFloor = Math.floor(randomNum + 500)
-		var div = document.createElement('div')
-		div.setAttribute('class', 'firework');
-		div.setAttribute('style', 'position:relative;left:' + randomNumFloor + 'px;');
-		document.querySelector('body').append(div);
-		num = num + 1
-	}
-}
 
 function CountDown() {
 	const now = new Date().getTime();
@@ -63,8 +51,6 @@ function CountDown() {
 		if (hours < 10) { hours = '0' + hours }
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
-		
-		if (seconds == 30) {Firework()}
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text

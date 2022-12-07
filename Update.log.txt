@@ -3,3 +3,7 @@ Create Date: 10/23/2022 (KST)
 
 -10/23/2022
   Create Page
+
+-12/07/2022
+  Make animation & real time clock
+  Test animation

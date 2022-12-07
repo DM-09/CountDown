@@ -1,10 +1,9 @@
+function Animation() {
 var size = document.querySelector("div#size")
 var move = document.querySelector("div#move")
 var fire = document.querySelector("div#fire")
 var years = document.querySelector("div#years")
 
-
-function Animation() {
   alert(size);
   size.setAttribute('class', 'txt-size');
   move.setAttribute('class', 'txt-move');

@@ -5,6 +5,7 @@ var years = document.querySelector("div#years")
 
 
 function Animation() {
+  alert(size);
   size.setAttribute('class', 'txt-size');
   move.setAttribute('class', 'txt-move');
   fire.setAttribute('class', 'fireworks');

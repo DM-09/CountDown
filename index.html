@@ -3,14 +3,7 @@
 <head>
 
 <title>Count Down</title>
-<style>
-	body {
-	     background-image : url('https://ae01.alicdn.com/kf/HTB1UDXCj9YH8KJjSspdq6ARgVXaf/-.jpg_Q90.jpg_.webp');
-	     background-repeat: no-repeat;
-	     background-size : cover ; 
-	}
-</style>
-	<link rel="stylesheet" type="text/css" href="animation.scss">
+	<link rel="stylesheet" type="text/css" href="animation.css">
 </head>
 
 <body>
@@ -26,42 +19,22 @@
 </div>
 
 <div id='title'  style="position:relative;left:-25px;top:150px; text-align : center; 
-	font-size:2em; font-weight: bold; color:White; class:'year'">
-	<span>2022</span>
-	<span>2023</span>
+	font-size:2em; font-weight: bold; color:White;">
 </div>
-
-
-<script>
-
-function CountDown() {
-	const now = new Date().getTime();
-	var The_Day = new Date(2022,12,01,00,00,00).getTime();
-	var distance = The_Day - now
-	var mark = document.querySelector("div#text")
-	
-	if (distance < 0) {
-		mark.innerHTML = 'Happy New Year!'
-	} else {
-		
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		
-		if (days < 10) { days = "0" + days }
-		if (hours < 10) { hours = '0' + hours }
-		if (minutes < 10) { minutes = '0' + minutes }
-		if (seconds < 10) { seconds = '0' + seconds }
-
-		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
-		mark.innerHTML = text
-		
-	}
-};
-
-setInterval(CountDown, 1000)
-</script>
+  
+<div id='fire' class=""></div>
+ 
+ <div id='size' class=''>
+   <div id='move' class=''> 
+    <div id="app">
+      <div id='years' style='color:White;position:relative;left:-25px;top:100px; text-align : center;' class="txt">
+        <span>2022</span>
+        <span>2023</span>
+      </div>
+    </div>
+  </div>
+</div>
+ 
 
 </body>
 </html>

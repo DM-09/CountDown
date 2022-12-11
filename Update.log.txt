@@ -1,9 +1,16 @@
 Author: DM-09
 Create Date: 10/23/2022 (KST)
 
+*: Producing by CodePen
+
+
 -10/23/2022
   Create Page
 
 -12/07/2022
   Make animation & real time clock
-  Test animation
+  (Test animation)
+
+-12/10/2022
+  Add picture on bottom of page
+  Layout optimization(Coming Soon)*

@@ -1,3 +1,10 @@
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+// Remove Scroll
+
 @keyframes moveYear {
   100% {
     transform: translateY(-40px);

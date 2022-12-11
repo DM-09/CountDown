@@ -19,5 +19,6 @@ Create Date: 10/23/2022 (KST)
   Fix animation*
   Add Function(name: AutoYear)*
   Fix Aniamtion Function*
-  
+  Fixed mobile scroll bug when animation played(Released)
+
   Coming Soon!

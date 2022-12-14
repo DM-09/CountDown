@@ -25,3 +25,7 @@ Create Date: 10/23/2022 (KST)
 
 -12/13/2022
   Fixed animation(css)*
+
+-12/14/2022
+ Fixed animation(js)
+ AND, Released Beta ver Update!!!

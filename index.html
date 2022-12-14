@@ -1,114 +1,42 @@
-body {
-  overflow: hidden;
-  height: 100%;
-}
+<!DOCTYPE html>
+<html>
+<head>
 
-html {
-  font-size: 10px;
-}
+<title>Count Down</title>
+<link rel="stylesheet" type="text/css" href="animation.css">
+<script src="https://unpkg.com/type-hangul"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-img {
-  width: 100%;
-  vertical-align: middle;
-}
+<body>
 
-#app {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
+<div id='title'  style="position:relative;text-align : center; 
+	font-size:4.5em; font-weight: bold; color:White;">
+	[New Year Count Down]
+</div>
 
-:root {
-  --fc1: #f20;
-  --fc2: #ff0;
-  --fc3: #04f;
-  --fc4: #0f4;
-  --fc5: #f0f;
-  --fc: var(--fc1);
-}
+<div id='text'  style="position:relative;left:-25px;top:300px; text-align : center; 
+	font-size:6em; font-weight: bold; color:White; -webkit-text-stroke: 2px #000;">
+	00 : 00 : 00
+</div>
+  
+<div id='real'  style="position:relative;left:10px;top:320px; text-align : center; 
+	font-size:2em; font-weight: bold; color:White;">
+  00/00 00:00:00
+</div>
+  
+<div id='fire' class=""></div>
 
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(#0007, #0000), #123;
-  overflow: hidden;
-}
 
-.fireworks:before, .fireworks:after {
-  position: absolute;
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  box-shadow: -120px 0 var(--fc), 120px 0 var(--fc), 0 120px var(--fc), 0 -120px var(--fc), 45px 45px var(--fc), -45px 45px var(--fc), 85px 85px var(--fc), -85px 85px var(--fc), 45px -45px var(--fc), -45px -45px var(--fc), 85px -85px var(--fc), -85px -85px var(--fc), 65px 0 var(--fc), -65px 0 var(--fc), 0 65px var(--fc), 0 -65px var(--fc), 100px 45px var(--fc), -100px 45px var(--fc), -50px 100px var(--fc), 50px 100px var(--fc), 100px -45px var(--fc), -100px -45px var(--fc), -50px -100px var(--fc), 50px -100px var(--fc), 5px 10px var(--fc);
-  animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-}
+<div id='pos' style="position:relative;left:-90px;top:294.5px; text-align : center;font-size:2em; color:#BDBDBD; font-weight: bold;" class=''>
+    
+  <div id="target" class = ''>2022</div>
+  <div id='app'></div>
+</div>
 
-.fireworks:after {
-  animation-delay: 1.25s, 1.25s, 1.25s;
-  animation-duration: 1.25s, 1.25s, 6.25s;
-}
+  
+<img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs' style="position: absolute;bottom: 0px;">
+ 
 
-@keyframes bang {
-  from {
-    box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
-  }
-}
-@keyframes gravity {
-  to {
-    transform: translate(-10px, 150px);
-    height: 6px;
-    width: 4px;
-    opacity: 0;
-  }
-}
-@keyframes position {
-  0%, 19.9% {
-    margin-top: 10%;
-    margin-left: 40%;
-    --fc: var(--fc1);
-  }
-  20%, 39.9% {
-    margin-top: 2%;
-    margin-left: 70%;
-    --fc: var(--fc2);
-  }
-  40%, 59.9% {
-    margin-top: 20%;
-    margin-left: 70%;
-    --fc: var(--fc3);
-  }
-  60%, 79.9% {
-    margin-top: 30%;
-    margin-left: 20%;
-    --fc: var(--fc4);
-  }
-  80%, 99.9% {
-    margin-top: 30%;
-    margin-left: 80%;
-    --fc: var(--fc5);
-  }
-}
-/* firework animation */
-/* by https://codepen.io/Shruti-Ag/pen/mdyBqvw */
-@keyframes move {
-  40% {
-    transform: translate(63px, -180px);
-    font-size: 4em;
-  }
-  70% {
-    transform: translate(63px, -180px);
-    font-size: 4em;
-  }
-  100% {
-    transform: translate(0px, 0px);
-    font-size: 2em;
-  }
-}
-.animation {
-  animation: move 7s linear forwards;
-}
+</body>
+</html>

@@ -1,30 +1,37 @@
-function Animation() {
-  var size = document.querySelector("div#size");
-  var move = document.querySelector("div#move");
-  var fire = document.querySelector("div#fire");
-  var years = document.querySelector("div#years");
+var bool = 0
+var be_year = 2022 //현재 년도 -기본 값: 2022
+var af_year = 2023 //새해 년도 -기본 값: 2023
 
-  alert(size);
-  size.setAttribute('class', 'txt-size');
-  move.setAttribute('class', 'txt-move');
-  fire.setAttribute('class', 'fireworks');
+function AutoYear() { //새해 7일 후 자동으로 년도를 바꿔줌
+  let date = new Date();
+  let day = date.getDate()
   
-  setTimeout(function() {
-      years.setAttribute('class', 'year');
-  }, 800);
-  
-  setTimeout(function() {
-    size.setAttribute('class', 'txt-back-size');
-    move.setAttribute('class', 'txt-back-move');
-  }, 3300);
-  
+  if (day == 7) {
+    let year = date.getFullYear()
+    be_year = year
+    af_year = year + 1
+  }
 }
 
-
+function Animation() {
+  if (bool == 0) {
+    var year = document.querySelector("div#target")
+    var shell = document.querySelector("div#pos")
+    var fire = document.querySelector("div#fire")
+    
+    //play animation
+    fire.setAttribute('class', 'fireworks');
+    shell.setAttribute('class', 'animation');
+    setTimeout(function() {
+       year.innerHTML = af_year
+       TypeHangul.type('#target');
+    }, 3500);
+  }
+} 
 
 function CountDown() {
 	const now = new Date().getTime();
-	var The_Day = new Date(2022,12,01,00,00,00).getTime();
+	var The_Day = new Date(be_year,12,01,00,00,00).getTime();
 	var distance = The_Day - now
 	var mark = document.querySelector("div#text")
   var time = document.querySelector("div#real")
@@ -32,6 +39,7 @@ function CountDown() {
 	if (distance < 0) {
 		mark.innerHTML = 'Happy New Year!'
     Animation()
+    bool = 1
 	} else {
 		
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -44,7 +52,10 @@ function CountDown() {
 		if (minutes < 10) { minutes = '0' + minutes }
 		if (seconds < 10) { seconds = '0' + seconds }
     
-    if (seconds == 40) {Animation()} //test
+    if (seconds == 00) {
+      Animation()
+      bool = 1
+    } //test
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
@@ -71,8 +82,9 @@ if (minute == 60) {minute = '00'; hour = Number(hour) + 1}
 const timeStr = month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
   
   time.innerHTML = timeStr
+  AutoYear()
 };
 
-
+AutoYear()
 
 setInterval(CountDown, 1000)

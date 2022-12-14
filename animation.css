@@ -3,47 +3,13 @@ body {
   height: 100%;
 }
 
-// Remove Scroll
-
-@keyframes moveYear {
-  100% {
-    transform: translateY(-40px);
-  }
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  color: inherit;
-  list-style: none;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-main {
-  display: block;
+html {
+  font-size: 10px;
 }
 
 img {
   width: 100%;
   vertical-align: middle;
-}
-
-a {
-  text-decoration: none;
-}
-
-p {
-  margin: 0;
-  line-height: 1.5;
-}
-
-html {
-  font-size: 10px;
 }
 
 #app {
@@ -55,228 +21,94 @@ html {
   overflow: hidden;
   position: relative;
 }
-#app .container {
-  width: 100%;
-  position: relative;
-  height: 40px;
+
+:root {
+  --fc1: #f20;
+  --fc2: #ff0;
+  --fc3: #04f;
+  --fc4: #0f4;
+  --fc5: #f0f;
+  --fc: var(--fc1);
 }
-#app .year {
-  font-family: "Alfa Slab One", cursive;
-  font-size: 3rem;
-  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.72);
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 40px;
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0007, #0000), #123;
   overflow: hidden;
 }
-#app .year span {
-  width: 100%;
-  display: block;
-  transform: translateY(0);
-  animation: moveYear linear 0.5s 0.5s forwards;
+
+.fireworks:before, .fireworks:after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: -120px 0 var(--fc), 120px 0 var(--fc), 0 120px var(--fc), 0 -120px var(--fc), 45px 45px var(--fc), -45px 45px var(--fc), 85px 85px var(--fc), -85px 85px var(--fc), 45px -45px var(--fc), -45px -45px var(--fc), 85px -85px var(--fc), -85px -85px var(--fc), 65px 0 var(--fc), -65px 0 var(--fc), 0 65px var(--fc), 0 -65px var(--fc), 100px 45px var(--fc), -100px 45px var(--fc), -50px 100px var(--fc), 50px 100px var(--fc), 100px -45px var(--fc), -100px -45px var(--fc), -50px -100px var(--fc), 50px -100px var(--fc), 5px 10px var(--fc);
+  animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
 }
 
-:root{
-    --fc1: #f20;
-    --fc2: #ff0;
-    --fc3: #04f;
-    --fc4: #0f4;
-    --fc5: #f0f;
-    --fc: var(--fc1);
+.fireworks:after {
+  animation-delay: 1.25s, 1.25s, 1.25s;
+  animation-duration: 1.25s, 1.25s, 6.25s;
 }
-body {
-    margin: 0;
-    padding: 0;
-    background: 
-    linear-gradient(#0007, #0000),
-    #123;
-    overflow: hidden; 
-}
-.fireworks:before, .fireworks:after{
-    position: absolute;
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    box-shadow: -120px 0 var(--fc),
-                120px 0 var(--fc),
-                0 120px var(--fc),
-                0 -120px var(--fc),
-                45px 45px var(--fc),
-                -45px 45px var(--fc),
-                85px 85px var(--fc),
-                -85px 85px var(--fc),
-                45px -45px var(--fc),
-                -45px -45px var(--fc),
-                85px -85px var(--fc),
-                -85px -85px var(--fc),
-                65px 0 var(--fc),
-                -65px 0 var(--fc),
-                0 65px var(--fc),
-                0 -65px var(--fc),
-                100px 45px var(--fc),
-                -100px 45px var(--fc),
-                -50px 100px var(--fc),
-                50px 100px var(--fc),
-                100px -45px var(--fc),
-                -100px -45px var(--fc),
-                -50px -100px var(--fc),
-                50px -100px var(--fc),
-                5px 10px var(--fc);
-    animation: 1s bang ease-out infinite backwards, 
-                1s gravity ease-in infinite backwards, 
-                5s position linear infinite backwards;
-}
-.fireworks:after{
-    animation-delay: 1.25s, 1.25s, 1.25s;
-    animation-duration: 1.25s, 1.25s, 6.25s;
-}
+
 @keyframes bang {
-    from {
-        box-shadow: 0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff,
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff,
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff, 
-                    0 0 #fff,
-                    0 0 #fff; 
-    }
+  from {
+    box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+  }
 }
-
 @keyframes gravity {
-    to {
-        transform: translate(-10px, 150px);
-        height: 6px;
-        width: 4px;
-        opacity: 0; 
-    }
+  to {
+    transform: translate(-10px, 150px);
+    height: 6px;
+    width: 4px;
+    opacity: 0;
+  }
 }
 @keyframes position {
-    0%, 19.9% {
-        margin-top: 10%;
-        margin-left: 40%;
-        --fc: var(--fc1);
-    }
-
-    20%, 39.9% {
-        margin-top: 2%;
-        margin-left: 70%; 
-        --fc: var(--fc2);
-    }
-
-    40%, 59.9% {
-        margin-top: 20%;
-        margin-left: 70%; 
-        --fc: var(--fc3);
-    }
-
-    60%, 79.9% {
-        margin-top: 30%;
-        margin-left: 20%;
-        --fc: var(--fc4);
-    }
-
-    80%, 99.9% {
-        margin-top: 30%;
-        margin-left: 80%; 
-        --fc: var(--fc5);
-    } 
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+    --fc: var(--fc1);
+  }
+  20%, 39.9% {
+    margin-top: 2%;
+    margin-left: 70%;
+    --fc: var(--fc2);
+  }
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%;
+    --fc: var(--fc3);
+  }
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%;
+    --fc: var(--fc4);
+  }
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%;
+    --fc: var(--fc5);
+  }
 }
-
+/* firework animation */
+/* by https://codepen.io/Shruti-Ag/pen/mdyBqvw */
 @keyframes move {
-	from {
-		transform: translate(10, 10);
-	}
-  to {
-    transform: translate(50px, -50px);
-	}
+  40% {
+    transform: translate(63px, -180px);
+    font-size: 4em;
+  }
+  70% {
+    transform: translate(63px, -180px);
+    font-size: 4em;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    font-size: 2em;
+  }
 }
-
-.txt-move {
-	animation: move 1s linear forwards;
-}
-
-/* text animation - 2(move) */
-/* by DM-09 */
-
-@keyframes size {
-	from {
-		transform: scale(1);
-	}
-  to {
-    transform: scale(2);
-	}
-}
-
-.txt-size {
-	animation: size 1s linear forwards;
-}
-
-/* text animation - 3(size) */
-/* by DM-09 */
-
-
-@keyframes back-size {
-	from {
-		transform: scale(2);
-	}
-  to {
-    transform: scale(1);
-	}
-}
-
-.txt-back-size {
-	animation: back-size 1s linear forwards;
-}
-
-.txt {
-  font-family: "Alfa Slab One", cursive;
-  font-size: 2rem;
-  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.72);
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 24px;
-  overflow: hidden;
-}
-.txt span {
-  width: 100%;
-  display: block;
-  transform: translateY(0);
-}
-
-@keyframes back-move {
-	from {
-		transform: translate(20, 10);
-	}
-  to {
-    transform: translate(-50px, 50px);
-	}
-}
-
-.txt-back-move {
-	animation: back-move 1s linear forwards;
+.animation {
+  animation: move 7s linear forwards;
 }

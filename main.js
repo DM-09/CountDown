@@ -62,7 +62,7 @@ function play() {
     playa.src = playing
     is = 1
   } else {
-    location.replace('https://codepen.io/DM-09/pen/QWxJrWB');
+    location.replace('https://dm-09.github.io/CountDown/');
   }
 }
 

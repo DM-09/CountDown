@@ -33,3 +33,6 @@ Create Date: 10/23/2022 (KST)
 -12/17/2022
  Added some icon(play animation, github code, full screen)
  Fix share preview
+
+-12/31/2022
+ Finally, Released 1.0 ver

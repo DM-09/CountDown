@@ -1,6 +1,6 @@
 var bool = 0
-var be_year = 2022 //현재 년도 -기본 값: 2022
-var af_year = 2023 //새해 년도 -기본 값: 2023
+var be_year = date.getFullYear() //현재 년도
+var af_year = date.getFullYear() + 1 //새해 년도
 var is = 0
 
 var full = 'https://user-images.githubusercontent.com/112751504/208221388-7468a028-17da-4eee-a2be-70a200fa0d79.png'
@@ -27,11 +27,11 @@ function toggleFullScreen() {
   }
 }
 
-function AutoYear() { //새해 3일 후 자동으로 년도를 바꿔줌
+function AutoYear() { //새해 1일 후 자동으로 년도를 바꿔줌
   let date = new Date();
   let day = date.getDate()
   
-  if (day > 2) {
+  if (day > 1) {
     let year = date.getFullYear()
     be_year = year
     af_year = year + 1

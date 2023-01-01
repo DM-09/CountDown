@@ -27,7 +27,7 @@ function toggleFullScreen() {
   }
 }
 
-function AutoYear() { //새해 7일 후 자동으로 년도를 바꿔줌
+function AutoYear() { //새해 3일 후 자동으로 년도를 바꿔줌
   let date = new Date();
   let day = date.getDate()
   

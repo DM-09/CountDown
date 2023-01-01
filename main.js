@@ -78,7 +78,7 @@ function CountDown() {
     Animation()
     bool = 1
 	} else {
-		var year = document.querySelector("div#target")
+		var years = document.querySelector("div#target")
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -91,7 +91,7 @@ function CountDown() {
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
-		year.innerHTML = be_year
+		years.innerHTML = be_year
   
     	}
   

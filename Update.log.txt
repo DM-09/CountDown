@@ -36,3 +36,8 @@ Create Date: 10/23/2022 (KST)
 
 -12/31/2022
  Finally, Released 1.0 ver
+
+-01/01/2022
+ Fix Function(Auto Year)
+ but i found bug
+ I'll fix later

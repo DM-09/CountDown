@@ -2,6 +2,7 @@ var bool = 0
 var be_year = date.getFullYear() //현재 년도
 var af_year = date.getFullYear() + 1 //새해 년도
 var is = 0
+var one = 0
 
 var full = 'https://user-images.githubusercontent.com/112751504/208221388-7468a028-17da-4eee-a2be-70a200fa0d79.png'
 
@@ -35,6 +36,7 @@ function AutoYear() { //새해 1일 후 자동으로 년도를 바꿔줌
     let year = date.getFullYear()
     be_year = year
     af_year = year + 1
+    one = 1
   }
 }
 
@@ -73,7 +75,7 @@ function CountDown() {
 	var mark = document.querySelector("div#text")
   var time = document.querySelector("div#real")
   
-	if (distance < 0) {
+	if (distance < 0 or one == 0) {
 		mark.innerHTML = 'Happy New Year!'
     Animation()
     bool = 1

@@ -75,7 +75,7 @@ function CountDown() {
 	var mark = document.querySelector("div#text")
   var time = document.querySelector("div#real")
   
-	if (distance < 0 or one == 0) {
+	if (distance < 0 || one == 0) {
 		mark.innerHTML = 'Happy New Year!'
     Animation()
     bool = 1

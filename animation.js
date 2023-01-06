@@ -17,4 +17,8 @@ function year_calc(year){
   var len = year.length;
   var ship_ez = year.substring(len, len);
   var ship_gan = year % 4;
+  var img = document.querySelector("img#animal")
+  
+  img.src = ten_ez[ship_ez - 1]
+  img.style = "position: absolute;top: 0px;left: 43%; width: 10% top: 15%; border : 5px solid" + ten_gan[ship_gan - 1]
 }

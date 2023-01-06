@@ -15,7 +15,7 @@ var ten_gan = ['#0000FF','#0000FF' ,'#FF0000', '#FF0000', '#FFFF00', '#FFFF00', 
 
 function year_calc(year){
   var len = year.length;
-  var ship_ez = year.substring(len, len);
+  var ship_ez = year.substr(len, len);
   var ship_gan = year % 4;
   var img = document.querySelector("img#animal")
   

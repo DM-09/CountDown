@@ -33,7 +33,7 @@ function AutoYear() { //새해 3일 후 자동으로 년도를 바꿔줌
   let date = new Date();
   let day = date.getDate()
   
-  if (day > 2) {
+  if (day > 6) {
     let year = date.getFullYear()
     be_year = year
     af_year = year + 1

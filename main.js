@@ -101,7 +101,6 @@ function CountDown() {
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
 		years.innerHTML = be_year
-  
     	}
   
 let today = new Date();

@@ -81,8 +81,9 @@ function CountDown() {
   
 	if (distance < 0 || one == 0) {
 		mark.innerHTML = 'Happy New Year!'
-    Animation()
-    bool = 1
+		year_calc(af_year)
+    		Animation()
+    		bool = 1
 	} else {
 		var years = document.querySelector("div#target")
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));

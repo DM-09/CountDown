@@ -83,7 +83,7 @@ function CountDown() {
   
 	if (distance < 0 || one == 0) {
 		mark.innerHTML = 'Happy New Year!'
-		year_calc(af_year)
+		ko_ani.year_calc(af_year)
     		Animation()
     		bool = 1
 	} else {

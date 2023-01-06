@@ -1,4 +1,4 @@
-import ko_ani from './animation.js'
+import ko_ani from './animation.js';
 
 var bool = 0
 var d = new Date();

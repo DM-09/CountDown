@@ -1,4 +1,4 @@
-var ten_ez = [https://user-images.githubusercontent.com/112751504/210911556-64edc72c-0e63-4e0e-ba45-041a7283a76c.png,
+var ten_ez =    [https://user-images.githubusercontent.com/112751504/210911556-64edc72c-0e63-4e0e-ba45-041a7283a76c.png,
                  https://user-images.githubusercontent.com/112751504/210911538-17542866-b9e2-49bf-ac37-ab5437da9811.png,
                  https://user-images.githubusercontent.com/112751504/210911540-67ac30d7-1169-4d76-839e-2a94b02b77d0.png,
                  https://user-images.githubusercontent.com/112751504/210911544-4615d4b5-e283-4629-9e10-3ddada56c1a0.png,
@@ -12,3 +12,9 @@ var ten_ez = [https://user-images.githubusercontent.com/112751504/210911556-64ed
                  https://user-images.githubusercontent.com/112751504/210911525-6379c72a-c7ee-4f9c-8fe8-96ea41134cff.png]
                  
 var ten_gan = ['#0000FF','#0000FF' ,'#FF0000', '#FF0000', '#FFFF00', '#FFFF00', '#FFFFFF', '#FFFFFF', '#000000', '#000000']
+
+function year_calc(year){
+  var len = year.length;
+  var ship_ez = year.substring(len, len);
+  var ship_gan = year % 4;
+}

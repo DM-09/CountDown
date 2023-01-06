@@ -86,7 +86,7 @@ function CountDown() {
 		ko_ani.year_calc(af_year)
     		Animation()
     		bool = 1
-	} else {
+	} else { 
 		var years = document.querySelector("div#target")
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

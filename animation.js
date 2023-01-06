@@ -22,3 +22,5 @@ function year_calc(year){
   img.src = ten_ez[ship_ez - 1]
   img.style = "position: absolute;top: 0px;left: 43%; width: 10% top: 15%; border : 5px solid" + ten_gan[ship_gan - 1]
 }
+
+export {ten_ez, ten_gan, year_calc};

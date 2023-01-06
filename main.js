@@ -1,5 +1,5 @@
 var bool = 0
-var d = new Date().getDate();
+var d = new Date();
 var be_year = d.getFullYear(); //현재 년도
 var af_year = d.getFullYear() + 1; //새해 년도
 var is = 0

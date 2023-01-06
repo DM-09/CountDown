@@ -1,6 +1,7 @@
 var bool = 0
-var be_year = date.getFullYear() //현재 년도
-var af_year = date.getFullYear() + 1 //새해 년도
+var d = new Date().getDate();
+var be_year = d.getFullYear() //현재 년도
+var af_year = d.getFullYear() + 1 //새해 년도
 var is = 0
 var one = 0
 
@@ -28,15 +29,18 @@ function toggleFullScreen() {
   }
 }
 
-function AutoYear() { //새해 1일 후 자동으로 년도를 바꿔줌
+function AutoYear() { //새해 3일 후 자동으로 년도를 바꿔줌
   let date = new Date();
   let day = date.getDate()
   
-  if (day > 1) {
+  if (day > 2) {
     let year = date.getFullYear()
     be_year = year
     af_year = year + 1
     one = 1
+  } else {
+    be_year = be_year - 1
+    af_year = af_year - 1
   }
 }
 

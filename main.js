@@ -1,5 +1,3 @@
-import ko_ani from './animation.js';
-
 var bool = 0
 var d = new Date();
 var be_year = d.getFullYear(); //현재 년도
@@ -83,7 +81,6 @@ function CountDown() {
   
 	if (distance < 0 || one == 0) {
 		mark.innerHTML = 'Happy New Year!'
-		ko_ani.year_calc(af_year)
     		Animation()
     		bool = 1
 	} else { 

@@ -1,71 +1,50 @@
+<!DOCTYPE html>
 <html>
 <head>
 
 <title>Count Down</title>
-<style>
-	body {
-	     background-image : url('https://ae01.alicdn.com/kf/HTB1UDXCj9YH8KJjSspdq6ARgVXaf/-.jpg_Q90.jpg_.webp');
-	     background-repeat: no-repeat;
-	     background-size : cover ; 
-	}
-</style>
-	<link rel="stylesheet" type="text/css" href="files/styles.css">
+<link rel="stylesheet" type="text/css" href="animation.css">
+<script src="https://unpkg.com/type-hangul"></script>
+<script type='module' src='./main.js'></script>
+<script type='module'  src='/animation.js'></script>
+	
+<meta property="og:url" content="https://dm-09.github.io/CountDown/">
+  <meta property="og:title" content="New Year CountDown!!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://user-images.githubusercontent.com/112751504/208222824-64531d22-5b5d-45b4-a870-45914f9d1b14.png">
+  <meta property="og:description" content="새해 카운트 다운을 즐겨보세요!">
 </head>
 
 <body>
 
-<div id='title'  style="position:relative;left:-25px;top:150px; text-align : center; 
-	font-size:4.5em; font-weight: bold; color:White;">
-	[New Year Count Down]
-</div>
-
 <div id='text'  style="position:relative;left:-25px;top:300px; text-align : center; 
-	font-size:6em; font-weight: bold; color:White;">
+	font-size:6em; font-weight: bold; color:White; -webkit-text-stroke: 2px #000;">
 	00 : 00 : 00
 </div>
+  
+<div id='real'  style="position:relative;left:10px;top:320px; text-align : center; 
+	font-size:2em; font-weight: bold; color:White;">
+  00/00 00:00:00
+</div>
+  
+<div id='fire' class=""></div>
 
-<script>
-var isMobile = /Mobi/i.test(window.navigator.userAgent);
 
-if (isMobile) {
-	window.location.href = 'https://dm-09.github.io/CountDown/mobile/';
-}
+<div id='pos' style="position:relative;left:-90px;top:294.5px; text-align : center;font-size:2em; color:#BDBDBD; font-weight: bold;" class=''>
+    
+  <div id="target" class = ''>2022</div>
+  <div id='app'></div>
+</div>
 
-function CountDown() {
-	var The_Day = new Date(2022,12,01,00,00,00).getTime();
-	var now = new Date().getTime();
-	var distance = The_Day - now
-	var mark = document.querySelector("div#text")
-	
-	if (distance < 0) {
-		mark.innerHTML = 'Happy New Year!'
-	} else {
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		
-		if (days < 10) {
-			days = "0" + days
-		}
-		if (hours < 10) {
-			hours = '0' + hours
-		}
-		if (minutes < 10) {
-			minutes = '0' + minutes
-		}
-		if (seconds < 10) {
-			seconds = '0' + seconds
-		}
-
-		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
-		
-		mark.innerHTML = text
-	}
-};
-
-setInterval(CountDown, 1000)
-</script>
-
+  <img src="https://user-images.githubusercontent.com/112751504/208218856-5f9ab6e4-cb2c-4e9f-b970-adf030f0163a.png" alt="" id='github' style="position: absolute;top: 0px; width: 2%" onclick="goGithub()">
+  
+<img src="https://user-images.githubusercontent.com/112751504/208221578-ebb13ce5-0cf4-4ee3-b9a8-89c2f6a8dac7.png" alt="" id='fulls' style="position: absolute;top: 0px;left: 3%; width: 2%" onclick="toggleFullScreen()">
+  
+<img src="https://user-images.githubusercontent.com/112751504/208221954-93eb4660-dbc4-4d96-b167-bf07867ddac6.png" alt="" id='playa' style="position: absolute;top: 0px;left: 6%; width: 2%" onclick="play()">
+  
+<img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs' style="position: absolute;bottom: 0px; width: 100%;vertical-align: middle;">
+ 
+ <img src="" alt="" id='animal' style="position: absolute;top: 0px;left: 43%; width: 10% top: 15%; border : 5px solid #00000;";vertical-align: middle;">
+ 
 </body>
 </html>

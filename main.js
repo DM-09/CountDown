@@ -1,11 +1,7 @@
-import * as Calc from './animation.js';
-
 var bool = 0
-var d = new Date();
-var be_year = d.getFullYear(); //현재 년도
-var af_year = Number(d.getFullYear()) + 1; //새해 년도
+var be_year = 2022 //현재 년도 -기본 값: 2022
+var af_year = 2023 //새해 년도 -기본 값: 2023
 var is = 0
-var one = 0
 
 var full = 'https://user-images.githubusercontent.com/112751504/208221388-7468a028-17da-4eee-a2be-70a200fa0d79.png'
 
@@ -31,18 +27,15 @@ function toggleFullScreen() {
   }
 }
 
-function AutoYear() { //새해 3일 후 자동으로 년도를 바꿔줌
+function AutoYear() { //새해 7일 후 자동으로 년도를 바꿔줌
   let date = new Date();
   let day = date.getDate()
+  let m = date.getMonth() + 1
   
-  if (day > 6) {
+  if (day >= 7 && m >= 1) {
     let year = date.getFullYear()
     be_year = year
     af_year = year + 1
-    one = 1
-  } else {
-    be_year = be_year - 1
-    af_year = af_year - 1
   }
 }
 
@@ -58,6 +51,8 @@ function Animation() {
     setTimeout(function() {
        year.innerHTML = af_year
        TypeHangul.type('#target');
+       be_year += 1
+       af_year += 1
     }, 3500);
   }
 } 
@@ -81,12 +76,12 @@ function CountDown() {
 	var mark = document.querySelector("div#text")
   var time = document.querySelector("div#real")
   
-	if (distance < 0 || one == 0) {
+	if (distance < 0) {
 		mark.innerHTML = 'Happy New Year!'
-    		Animation()
-    		bool = 1
-	} else { 
-		var years = document.querySelector("div#target")
+    Animation()
+    bool = 1
+	} else {
+		
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -99,8 +94,8 @@ function CountDown() {
 
 		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
 		mark.innerHTML = text
-		years.innerHTML = be_year
-    	}
+		
+	}
   
 let today = new Date();
   
@@ -122,7 +117,8 @@ if (minute == 60) {minute = '00'; hour = Number(hour) + 1}
 const timeStr = month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
   
   time.innerHTML = timeStr
-  AutoYear()
+var yr = document.querySelector("div#target")
+yr.innerHTML = be_year
 };
 
 AutoYear()

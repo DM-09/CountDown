@@ -13,7 +13,7 @@ var dday = Date.parse(`${next_year}/01/01 00:00:00`);
 
 // fireworks
 const container = document.querySelector('#main')
-var fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
+//var fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
 
 // functions
 function CountDown() {
@@ -40,7 +40,7 @@ function CountDown() {
     text = endText
     bool = true
     $('#countdown').addClass('grad')
-    if (firework) { fireworks.start() }
+    //if (firework) { fireworks.start() }
   }
   return text
 }

@@ -1,49 +1,81 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<title>Count Down</title>
-<link rel="stylesheet" type="text/css" href="animation.css">
-<script src="https://unpkg.com/type-hangul"></script>
-<script src='./main.js'></script>
-	
-<meta property="og:url" content="https://dm-09.github.io/CountDown/">
-  <meta property="og:title" content="New Year CountDown!!">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://user-images.githubusercontent.com/112751504/208222824-64531d22-5b5d-45b4-a870-45914f9d1b14.png">
-  <meta property="og:description" content="새해 카운트 다운을 즐겨보세요!">
-</head>
-
-<body>
-
-<div id='text'  style="position:relative;left:-25px;top:300px; text-align : center; 
-	font-size:6em; font-weight: bold; color:White; -webkit-text-stroke: 2px #000;">
-	00 : 00 : 00
-</div>
-  
-<div id='real'  style="position:relative;left:10px;top:320px; text-align : center; 
-	font-size:2em; font-weight: bold; color:White;">
-  00/00 00:00:00
-</div>
-  
-<div id='fire' class=""></div>
-
-
-<div id='pos' style="position:relative;left:-90px;top:294.5px; text-align : center;font-size:2em; color:#BDBDBD; font-weight: bold;" class=''>
+<!Doctype html>
+<html lang="ko">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/hangul-js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@1.x/dist/fireworks.js"></script>
+    <script src="https://kit.fontawesome.com/b9bfb743d5.js" crossorigin="anonymous"></script>
     
-  <div id="target" class = ''>2022</div>
-  <div id='app'></div>
-</div>
+    
+    <title id='page-title'>Countdown</title>
+    <script src="main.js"></script>
+  </head>
+  <body class='body'>
+    <div class='container' id='main'>
+      <center>
+       <img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs'class='position-absolute bottom-0 start-50 translate-middle-x' width='95%'>
+        
+         <div class='mt-3 h6' style='text-align:right;'>            <i class="fa-brands fa-github" onClick='window.open("https://github.com/DM-09/CountDown")'></i>　
+           <i data-bs-toggle="modal" data-bs-target="#setting" class="fa-solid fa-gear"></i>
+         </div>
+        
+        <div id='name' class=' h6 position-absolute top-0 start-0' style='color:gray; text-align:left;'>     
+        </div>
+        
+        <div class='full-view'>
+          <div id='countdown' class='display-5 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
+ 00 : 00 : 00 : 00
+          <div id='real-timer' class='h5 animation' style=" font-weight: bold; color:White;">
+ 0000 00/00 00:00:00</div3
+          </div>
+        </div>
+      </center>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-dark"  style='color: black !important'>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="m_title">Setting 설정</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" checked onClick='ShowFireworks()'>
+           <label class="form-check-label" for="flexSwitchCheckDefault" id='m_fw'>Show Fireworks</label>
+        </div>
+        
+        <div class="form-check form-switch">
+          <label class="form-check-label" for="flexSwitchCheckDefault" id='m_yi'>Show Year info</label>
+          <input class="form-check-input" type="checkbox" role="switch" checked onClick='ShowYearinfo()'>
+        </div>
 
-  <img src="https://user-images.githubusercontent.com/112751504/208218856-5f9ab6e4-cb2c-4e9f-b970-adf030f0163a.png" alt="" id='github' style="position: absolute;top: 0px; width: 2%" onclick="goGithub()">
-  
-<img src="https://user-images.githubusercontent.com/112751504/208221578-ebb13ce5-0cf4-4ee3-b9a8-89c2f6a8dac7.png" alt="" id='fulls' style="position: absolute;top: 0px;left: 3%; width: 2%" onclick="toggleFullScreen()">
-  
-<img src="https://user-images.githubusercontent.com/112751504/208221954-93eb4660-dbc4-4d96-b167-bf07867ddac6.png" alt="" id='playa' style="position: absolute;top: 0px;left: 6%; width: 2%" onclick="play()">
-  
-<img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs' style="position: absolute;bottom: 0px; width: 100%;vertical-align: middle;">
- 
- <img src="" alt="" id='animal' style="position: absolute;top: 0px;left: 43%; width: 10% top: 15%; border : 5px solid #00000;";vertical-align: middle;">
- 
-</body>
+         <div class="form-check form-switch">
+          <label class="form-check-label" for="flexSwitchCheckDefault"  onClick='Devmode()' id='m_dev'>Enable Dev Mode</label>
+          <input class="form-check-input" type="checkbox" role="switch" onClick='Devmode()'>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id='lang'>
+            언어
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onClick='language()'>한국어</a></li>
+            <li><a class="dropdown-item" onClick='language()'>English</a></li>
+          </ul>
+        </div>
+        <br>
+        <div id='m_dla' class='hide'>-- 개발자 모드 --</div>
+        <btn type="button" onClick='TestCountdown()' id='test' class="btn btn-secondary hide">카운트다운 테스트</btn> <br> <btn type="button" onClick='Settext()' id='settext' class="btn btn-secondary mt-2">메시지 수정</btn>
+        <center><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></center>
+      </div>
+      </div>
+    </div>
+  </body>
 </html>

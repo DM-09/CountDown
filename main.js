@@ -1,126 +1,152 @@
-var bool = 0
-var be_year = 2022 //현재 년도 -기본 값: 2022
-var af_year = 2023 //새해 년도 -기본 값: 2023
-var is = 0
+var y = 2023
+var next_year = 2024
 
-var full = 'https://user-images.githubusercontent.com/112751504/208221388-7468a028-17da-4eee-a2be-70a200fa0d79.png'
+// Setting value
+var bool = false
+var firework = true
+var yearinfo = true
+var lang = 0
+var dev = true
+var endText = 'Happy New Year!'
 
-var no = 'https://user-images.githubusercontent.com/112751504/208221578-ebb13ce5-0cf4-4ee3-b9a8-89c2f6a8dac7.png'
+var dday = Date.parse(`${next_year}/01/01 00:00:00`);
 
-var playing = 'https://user-images.githubusercontent.com/112751504/208221987-6bc88e7e-9fff-41e5-88b3-4e8dc2c03fb1.png'
+// fireworks
+const container = document.querySelector('#main')
+const fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
 
-function goGithub() {
-  location.replace('https://github.com/DM-09/CountDown');
+// functions
+function CountDown() {
+  var day = dday
+  var now = new Date()
+  var diff = day - now
+  
+  var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  var hours = Math.floor(diff / (1000 * 60 * 60));
+  var mins = Math.floor(diff / (1000 * 60));
+  var secs = Math.floor(diff / 1000);
+  var d = days;
+  var h = hours - days * 24;
+  var m = mins - hours * 60;
+  var s = secs - mins * 60;
+ 
+  if (d < 10) { d = '0' + d }
+  if (h < 10) { h = '0' + h }
+  if (m < 10) { m = '0' + m }
+  if (s < 10) { s = '0' + s }
+  
+  var text = `${d} : ${h} : ${m} : ${s}`
+  if (diff < 0) {
+    text = endText
+    bool = true
+    $('#countdown').addClass('grad')
+    if (firework) { fireworks.start() }
+  }
+  return text
 }
 
-function toggleFullScreen() {
-  var btn = document.querySelector("img#fulls")
+function RealTimer() {
+  var now = new Date()
+  var box = [now.getMonth() + 1, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds(), now.getFullYear()]
   
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen()
-    btn.src = full
+  if (box[0] < 10) { box[0] = "0" + box[0] }
+  if (box[1] < 10) { box[1] = "0" + box[1] }
+  if (box[2] < 10) { box[2] = "0" + box[2] }
+  if (box[3] < 10) { box[3] = "0" + box[3] }
+  if (box[4] < 10) { box[4] = "0" + box[4] }
+  
+  var text = `${box[5]} ${box[0]}/${box[1]} ${box[2]}:${box[3]}:${box[4]}`
+  
+  return text
+}
+
+function name(year) {
+  var a = "경신임계갑을병정무기"
+  var b = "신유술해자축인묘진사오미"
+  
+  var a2 = "庚辛壬癸甲乙丙丁戊己"
+  var b2 = "申酉戌亥子丑寅卯辰巳午未"
+
+  var text = year + '년: ' + a[year % 10] + b[year % 12] + '(' + a2[year % 10] + b2[year % 12] + ')년'
+  
+  if (!yearinfo) { return '' } 
+  return "　" + text
+}
+
+function main() {
+  var timer = RealTimer()
+  var down = CountDown()
+  var NAME = name(new Date().getFullYear())
+  
+  var text = `${down}
+   <div id='real-timer' class='h5' style=" font-weight: bold; color:White;">${timer}</div>
+  `
+  
+  $("#countdown").html(text)
+  $("#name").html(NAME)
+}
+
+function ShowFireworks() {
+  if (firework) { 
+    firework = false
+    fireworks.stop()
+  }
+  else { 
+    firework = true
+    if (bool) { fireworks.start() }
+   }
+}
+function ShowYearinfo() {
+  if (yearinfo) { yearinfo = false }
+  else { yearinfo = true }
+}
+function language() {
+  var ko = ['설정', '불꽃놀이 보기', '년도 정보 표시', '개발자 모드 활성화', '언어', '카운트다운 테스트', '-- 개발자 모드 --', '메시지 수정']
+  var en = ['Setting', 'Show fireworks', 'Show year info', 'Enable Dev Mode', 'Language', 'Test Countdown', '-- Dev Mode --', 'Change message']
+  var el = ['m_title', 'm_fw', 'm_yi', 'm_dev', 'lang', 'test', 'm_dla', 'settext']
+  
+  if (lang) { lang = 0 }
+  else { lang = 1 }
+  
+  if (lang) {
+    for (var i=0; i < el.length; i++) {
+      $('#'+el[i]).html(ko[i])
+    }
   } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen()
-      btn.src = no
+    for (var i=0; i < el.length; i++) {
+      $('#'+el[i]).html(en[i])
     }
   }
 }
-
-function AutoYear() { //새해 7일 후 자동으로 년도를 바꿔줌
-  let date = new Date();
-  let day = date.getDate()
-  let m = date.getMonth() + 1
-  
-  if (day >= 7 && m >= 1) {
-    let year = date.getFullYear()
-    be_year = year
-    af_year = year + 1
-  }
+function TestCountdown() {
+  var now = new Date();
+  now.setSeconds(now.getSeconds() + 10);
+  dday = now
 }
-
-function Animation() {
-  if (bool == 0) {
-    var year = document.querySelector("div#target")
-    var shell = document.querySelector("div#pos")
-    var fire = document.querySelector("div#fire")
-    
-    //play animation
-    fire.setAttribute('class', 'fireworks');
-    shell.setAttribute('class', 'animation');
-    setTimeout(function() {
-       year.innerHTML = af_year
-       TypeHangul.type('#target');
-       be_year += 1
-       af_year += 1
-    }, 3500);
-  }
-} 
-
-function play() {
-  var playa = document.querySelector("img#playa")
+function Devmode() {
+  if (dev) { dev = false }
+  else { dev = true }
   
-  if (is == 0) {
-    Animation()
-    playa.src = playing
-    is = 1
+  var el = ['test', 'm_dla', 'settext']
+  
+  if (dev) {
+    for (var i=0; i < el.length; i++) {
+       $('#' + el[i]).removeClass('hide')
+    }
   } else {
-    location.replace('https://dm-09.github.io/CountDown/');
+     for (var i=0; i < el.length; i++) {
+       $('#' + el[i]).addClass('hide')
+    }
   }
 }
+function Settext() {
+  var text = '바꿀 메시지를 입력하세요'
+  if (!lang) { text = 'Please enter a message to replace' }
+  var input = prompt(text, 'Happy New Year!')
+  endText = input
+}
 
-function CountDown() {
-	const now = new Date().getTime();
-	var The_Day = new Date(be_year,12,01,00,00,00).getTime();
-	var distance = The_Day - now
-	var mark = document.querySelector("div#text")
-  var time = document.querySelector("div#real")
-  
-	if (distance < 0) {
-		mark.innerHTML = 'Happy New Year!'
-    Animation()
-    bool = 1
-	} else {
-		
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		
-		if (days < 10) { days = "0" + days }
-		if (hours < 10) { hours = '0' + hours }
-		if (minutes < 10) { minutes = '0' + minutes }
-		if (seconds < 10) { seconds = '0' + seconds }
+language()
+Devmode()
 
-		var text = days + ' : ' + hours + ' : ' + minutes + ' : '+ seconds
-		mark.innerHTML = text
-		
-	}
-  
-let today = new Date();
-  
-let month = today.getMonth() + 1;
-let date = today.getDate();
-
-let hour = today.getHours();
-let minute = today.getMinutes();
-let second = today.getSeconds() + 1;
-  
-if (hour < 10) { hour = '0' + hour }
-if (minute < 10) { minute = '0' + minute }
-if (second < 10) { second = '0' + second }
-if (second == 60) { second = '00';                      minute = Number(minute) + 1}
-if (month < 10) {month = '0' + month;}
-if (date < 10) {date = '0' + date}
-if (minute == 60) {minute = '00'; hour = Number(hour) + 1}
-  
-const timeStr = month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
-  
-  time.innerHTML = timeStr
-var yr = document.querySelector("div#target")
-yr.innerHTML = be_year
-};
-
-AutoYear()
-
-setInterval(CountDown, 1000)
+setInterval(main, 1000)

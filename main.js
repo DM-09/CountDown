@@ -89,11 +89,11 @@ function main() {
 function ShowFireworks() {
   if (firework) { 
     firework = false
-    fireworks.stop()
+    //fireworks.stop()
   }
   else { 
     firework = true
-    if (bool) { fireworks.start() }
+    //if (bool) { fireworks.start() }
    }
 }
 function ShowYearinfo() {

@@ -117,6 +117,7 @@ function language() {
       $('#'+el[i]).html(en[i])
     }
   }
+  console.log('1')
 }
 function TestCountdown() {
   var now = new Date();

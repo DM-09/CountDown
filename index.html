@@ -15,11 +15,13 @@
     
     
     <title id='page-title'>Countdown</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="animation.css">
   </head>
   <body class='body'>
     <div class='container' id='main'>
       <center>
-       <img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs'class='position-absolute bottom-0 start-50 translate-middle-x' width='95%'>
+       <img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs' class='position-fixed bottom-0 translate-middle-x img-fluid imgs' width='95%'>
         
          <div class='mt-3 h6' style='text-align:right;'>            <i class="fa-brands fa-github" onClick='window.open("https://github.com/DM-09/CountDown")'></i>　
            <i data-bs-toggle="modal" data-bs-target="#setting" class="fa-solid fa-gear"></i>
@@ -91,7 +93,6 @@
 .container {
   position: relative;
   height: 95vh;
-  width: 100vw;
 }
 .bg-color {background-color: #202325 !important}
 
@@ -102,6 +103,12 @@
     background: -webkit-linear-gradient(90deg, rgba(9,71,121,1) 50%, rgba(0,255,253,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.imgs {
+position: fixed;
+bottom: 0;
+width: 95%;
 }
     </style>
 

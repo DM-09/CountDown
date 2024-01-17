@@ -168,7 +168,6 @@ function UpdateCountDown() {
   dday = Date.parse(`${next_year}/01/01 00:00:00`);
 }
 function main() {
-  UpdateCountDown()
   var timer = RealTimer()
   var down = CountDown()
   var NAME = name(new Date().getFullYear())
@@ -248,6 +247,7 @@ function TestYearInfo() {
   alert(name(parseInt(input)).replace('<br>', '').replace('　', ''))
 }
 
+UpdateCountDown()
 language()
 Devmode()
 

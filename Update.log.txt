@@ -1,5 +1,43 @@
 Author: DM-09
 Create Date: 10/23/2022 (KST)
 
+*: Producing by CodePen
+
+
 -10/23/2022
   Create Page
+
+-12/07/2022
+  Make animation & real time clock
+  (Test animation)
+
+-12/10/2022
+  Add picture on bottom of page
+  Layout optimization(Coming Soon)*
+
+-12/10/2022
+  Fix animation*
+  Add Function(name: AutoYear)*
+  Fix Aniamtion Function*
+  Fix mobile scroll bug when animation played(Released)
+
+  Coming Soon!
+
+-12/13/2022
+  Fix animation(css)*
+
+-12/14/2022
+ Fixed animation(js)
+ AND, Released Beta ver Update!!!
+
+-12/17/2022
+ Added some icon(play animation, github code, full screen)
+ Fix share preview
+
+-12/31/2022
+ Finally, Released 1.0 ver
+
+-01/01/2022
+ Fix Function(Auto Year)
+ but i found bug
+ I'll fix later

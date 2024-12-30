@@ -1,85 +1,4 @@
-<!Doctype html>
-<html lang="ko">
-  <head>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://unpkg.com/hangul-js"></script>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@1.x/dist/fireworks.js"></script>
-    <script src="https://kit.fontawesome.com/b9bfb743d5.js" crossorigin="anonymous"></script>
-    
-    
-    <title id='page-title'>Countdown</title>
-    <link rel="stylesheet" href="animation.css">
-  </head>
-  <body class='body'>
-    <div class='container' id='main'>
-      <center>
-       <img src="https://user-images.githubusercontent.com/112751504/206159094-7683130f-3980-4b85-91f2-09fe1be60725.png" alt="" id='imgs'class='position-absolute bottom-0 start-50 translate-middle-x' width='95%'>
-        
-         <div class='mt-3 h6' style='text-align:right;'>            <i class="fa-brands fa-github" onClick='window.open("https://github.com/DM-09/CountDown")'></i>　
-           <i data-bs-toggle="modal" data-bs-target="#setting" class="fa-solid fa-gear"></i>
-         </div>
-        
-        <div id='name' class=' h6 position-absolute top-0 start-0' style='color:gray; text-align:left;'>     
-        </div>
-        
-        <div class='full-view'>
-          <div id='countdown' class='display-5 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
- 00 : 00 : 00 : 00
-          <div id='real-timer' class='h5 animation' style=" font-weight: bold; color:White;">
- 0000 00/00 00:00:00</div3
-          </div>
-        </div>
-      </center>
-    </div>
-    <!-- Modal -->
-<div class="modal fade" id="setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog bg-dark"  style='color: black !important'>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="m_title">Setting 설정</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" checked onClick='ShowFireworks()'>
-           <label class="form-check-label" for="flexSwitchCheckDefault" id='m_fw'>Show Fireworks</label>
-        </div>
-        
-        <div class="form-check form-switch">
-          <label class="form-check-label" for="flexSwitchCheckDefault" id='m_yi'>Show Year info</label>
-          <input class="form-check-input" type="checkbox" role="switch" checked onClick='ShowYearinfo()'>
-        </div>
-
-         <div class="form-check form-switch">
-          <label class="form-check-label" for="flexSwitchCheckDefault"  onClick='Devmode()' id='m_dev'>Enable Dev Mode</label>
-          <input class="form-check-input" type="checkbox" role="switch" onClick='Devmode()'>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id='lang'>
-            언어
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" onClick='language()'>한국어</a></li>
-            <li><a class="dropdown-item" onClick='language()'>English</a></li>
-          </ul>
-        </div>
-        <br>
-        <div id='m_dla' class='hide'>-- 개발자 모드 --</div>
-        <btn type="button" onClick='TestCountdown()' id='test' class="btn btn-secondary hide">카운트다운 테스트</btn> <br> <btn type="button" onClick='Settext()' id='settext' class="btn btn-secondary mt-2 hide">메시지 수정</btn> <br> <btn type="button" onClick='TestYearInfo()' id='yearinfotest' class="btn btn-secondary mt-2 hide">년도 정보 테스트</btn>
-        <center><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></center>
-      </div>
-      </div>
-    </div>
-
-    <script>
-      var y = 2023
+var y = 2023
 var next_year = 2024
 
 // Setting value
@@ -88,7 +7,7 @@ var firework = true
 var yearinfo = true
 var lang = 0
 var dev = true
-var endText = 'Happy New Year!'
+var endText = 'Hello, 2025!! <br> Happy New Year!'
 
 var dday = Date.parse(`${next_year}/01/01 00:00:00`);
 
@@ -97,6 +16,7 @@ const container = document.querySelector('#main')
 var fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
 
 // functions
+
 function CountDown() {
   var day = dday
   var now = new Date()
@@ -117,7 +37,7 @@ function CountDown() {
   if (s < 10) { s = '0' + s }
   
   var text = `${d} : ${h} : ${m} : ${s}`
-  if (diff < 0) {
+  if (diff > 0) {
     text = endText
     bool = true
     $('#countdown').addClass('grad')
@@ -173,10 +93,9 @@ function main() {
   var down = CountDown()
   var NAME = name(new Date().getFullYear())
   
-  var text = `${down}
+  var text = `<div id='ctimer'>${down}</div>
    <div id='real-timer' class='h5' style=" font-weight: bold; color:White;">${timer}</div>
   `
-  
   $("#countdown").html(text)
   $("#name").html(NAME)
 }
@@ -252,6 +171,3 @@ language()
 Devmode()
 
 setInterval(main, 1000)
-    </script>
-  </body>
-</html>

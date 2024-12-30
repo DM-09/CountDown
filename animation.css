@@ -9,7 +9,7 @@
 }
 .container {
   position: relative;
-  height: 95vh;
+  height: 100vh;
 }
 .bg-color {background-color: #202325 !important}
 
@@ -17,7 +17,7 @@
 .hide { display: none !important }
 
 .grad {
-    background: -webkit-linear-gradient(90deg, rgba(9,71,121,1) 50%, rgba(0,255,253,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(95deg, rgba(255,94,98,1) 50%, rgba(255,174,0,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

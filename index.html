@@ -15,7 +15,6 @@
     
     
     <title id='page-title'>Countdown</title>
-    <script src="main.js"></script>
     <link rel="stylesheet" href="animation.css">
   </head>
   <body class='body'>
@@ -29,8 +28,9 @@
         
         <div id='name' class=' h6 position-absolute top-0 start-0' style='color:gray; text-align:left;'>     
         </div>
+        
         <div class='full-view'>
-          <div id='countdown' class='display-6 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
+          <div id='countdown' class='display-5 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
  00 : 00 : 00 : 00
           <div id='real-timer' class='h5 animation' style=" font-weight: bold; color:White;">
  0000 00/00 00:00:00</div3
@@ -77,8 +77,9 @@
       </div>
       </div>
     </div>
+
     <script>
-    var y = 2023
+var y = 2023
 var next_year = 2024
 
 // Setting value
@@ -117,7 +118,7 @@ function CountDown() {
   if (s < 10) { s = '0' + s }
   
   var text = `${d} : ${h} : ${m} : ${s}`
-  if (diff < 0) {
+  if (diff > 0) {
     text = endText
     bool = true
     $('#countdown').addClass('grad')
@@ -251,32 +252,6 @@ language()
 Devmode()
 
 setInterval(main, 1000)
-  </script>
+    </script>
   </body>
-
-  <style>
-    /** Web style **/
-
-.body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(#0050, #0100), #124;
-  overflow: hidden;
-  color: white;
-}
-.container {
-  position: relative;
-  height: 100vh;
-}
-.bg-color {background-color: #202325 !important}
-
-.full-view { width: 100vw; height: 20vh; }
-.hide { display: none !important }
-
-.grad {
-    background: -webkit-linear-gradient(95deg, rgba(255,94,98,1) 50%, rgba(255,174,0,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-  </style>
 </html>

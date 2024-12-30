@@ -30,7 +30,7 @@
         </div>
         
         <div class='full-view'>
-          <div id='countdown' class='display-6 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
+          <div id='countdown' class='display-5 position-absolute top-50 start-50 translate-middle full-view' style=" font-weight: bold; color:White;">
  00 : 00 : 00 : 00
           <div id='real-timer' class='h5 animation' style=" font-weight: bold; color:White;">
  0000 00/00 00:00:00</div3
@@ -77,9 +77,9 @@
       </div>
       </div>
     </div>
-  </body>
-  <script>
-var y = 2023
+
+    <script>
+      var y = 2023
 var next_year = 2024
 
 // Setting value
@@ -88,7 +88,7 @@ var firework = true
 var yearinfo = true
 var lang = 0
 var dev = true
-var endText = 'Hello, 2025 & Happy New Year!'
+var endText = 'Hello, 2025 & Happy New Year!!'
 
 var dday = Date.parse(`${next_year}/01/01 00:00:00`);
 
@@ -97,7 +97,6 @@ const container = document.querySelector('#main')
 var fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
 
 // functions
-
 function CountDown() {
   var day = dday
   var now = new Date()
@@ -169,14 +168,14 @@ function UpdateCountDown() {
   dday = Date.parse(`${next_year}/01/01 00:00:00`);
 }
 function main() {
-  UpdateCountDown()
   var timer = RealTimer()
   var down = CountDown()
   var NAME = name(new Date().getFullYear())
   
-  var text = `<div id='ctimer'>${down}</div>
+  var text = `${down}
    <div id='real-timer' class='h5' style=" font-weight: bold; color:White;">${timer}</div>
   `
+  
   $("#countdown").html(text)
   $("#name").html(NAME)
 }
@@ -248,9 +247,11 @@ function TestYearInfo() {
   alert(name(parseInt(input)).replace('<br>', '').replace('　', ''))
 }
 
+UpdateCountDown()
 language()
 Devmode()
 
 setInterval(main, 1000)
     </script>
+  </body>
 </html>

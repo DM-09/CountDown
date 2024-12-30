@@ -145,7 +145,7 @@ function CountDown() {
   if (s < 10) { s = '0' + s }
   
   var text = `${d} : ${h} : ${m} : ${s}`
-  if (diff > 0) {
+  if (diff < 0) {
     text = endText
     bool = true
     $('#countdown').addClass('grad')

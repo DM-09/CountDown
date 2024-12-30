@@ -7,7 +7,7 @@ var firework = true
 var yearinfo = true
 var lang = 0
 var dev = true
-var endText = 'Happy New Year!'
+var endText = 'Hello, 2025!! <br> Happy New Year!'
 
 var dday = Date.parse(`${next_year}/01/01 00:00:00`);
 
@@ -16,6 +16,7 @@ const container = document.querySelector('#main')
 var fireworks = new Fireworks(container, { intensity : 15, traceSpeed: 5, delay : { min: 15, max: 40 } })
 
 // functions
+
 function CountDown() {
   var day = dday
   var now = new Date()
@@ -36,7 +37,7 @@ function CountDown() {
   if (s < 10) { s = '0' + s }
   
   var text = `${d} : ${h} : ${m} : ${s}`
-  if (diff < 0) {
+  if (diff > 0) {
     text = endText
     bool = true
     $('#countdown').addClass('grad')
@@ -92,10 +93,9 @@ function main() {
   var down = CountDown()
   var NAME = name(new Date().getFullYear())
   
-  var text = `${down}
+  var text = `<div id='ctimer'>${down}</div>
    <div id='real-timer' class='h5' style=" font-weight: bold; color:White;">${timer}</div>
   `
-  
   $("#countdown").html(text)
   $("#name").html(NAME)
 }
@@ -171,4 +171,3 @@ language()
 Devmode()
 
 setInterval(main, 1000)
-

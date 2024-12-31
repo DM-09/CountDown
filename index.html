@@ -157,7 +157,7 @@ function name(year) {
   } else if (year % 400 == 0) { text += ', 윤년' }
   
   if (!yearinfo) { return '' } 
-  return "　" + text
+  return "<br>　" + text
 }
 function UpdateCountDown() {
   var date = new Date()
@@ -168,7 +168,6 @@ function UpdateCountDown() {
   dday = Date.parse(`${next_year}/01/01 00:00:00`);
 }
 function main() {
-  UpdateCountDown()
   var timer = RealTimer()
   var down = CountDown()
   var NAME = name(new Date().getFullYear())
@@ -248,10 +247,36 @@ function TestYearInfo() {
   alert(name(parseInt(input)).replace('<br>', '').replace('　', ''))
 }
 
+UpdateCountDown()
 language()
 Devmode()
 
 setInterval(main, 1000)
     </script>
+    <style>
+     /** Web style **/
+
+.body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0050, #0100), #124;
+  overflow: hidden;
+  color: white;
+}
+.container {
+  /* position: relative; */
+  height: 100vh;
+}
+.bg-color {background-color: #202325 !important}
+
+.full-view { width: 100vw; height: 20vh; }
+.hide { display: none !important }
+
+.grad {
+    background: -webkit-linear-gradient(95deg, rgba(255,94,98,1) 50%, rgba(255,174,0,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+    </style>
   </body>
 </html>

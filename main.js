@@ -85,9 +85,11 @@ function main() {
   $('#info').html(yearInfo)
 }
 
-AutoYear()
-main()
-setInterval(main, 1000)
+window.onload = function() {
+  AutoYear()
+  main()
+  setInterval(main, 1000)
+}
 
 
 // Dev Mode

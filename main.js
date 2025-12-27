@@ -1,9 +1,7 @@
 // Value
 var endText = 'Happy New Year!'
 var dday = new Date()
-
-var con = document.querySelector('#con')
-var fireworks = new Fireworks(con, { intensity : 15, traceSpeed: 7, delay : { min: 5, max: 30 }, rocketsPoint: { min: 50, max: 50 }, })
+var fireworks = null
 
 function padnum(x, n) {
   // x: 숫자(문자열), n: 자릿수
@@ -86,6 +84,9 @@ function main() {
 }
 
 window.onload = function() {
+  var con = document.querySelector('#con')
+  fireworks = new Fireworks(con, { intensity : 15, traceSpeed: 7, delay : { min: 5, max: 30 }, rocketsPoint: { min: 50, max: 50 }, })
+  
   AutoYear()
   main()
   setInterval(main, 1000)
